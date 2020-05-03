@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <!-- <span>{{ MyTitle }}</span> -->
+  <span>
+    <a routerLink="/">{{ MyTitle }}</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <a mat-button routerLink="/create" *ngIf="isLoggedIn()" routerLinkActive="mat-accent">Nuevo Cliente</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" routerLinkActive="mat-accent">Iniciar sesión</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/signup" *ngIf="!isLoggedIn()" routerLinkActive="mat-accent">Registrese</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/logout" *ngIf="isLoggedIn()" routerLinkActive="mat-accent">Cerrar sesión</a>
+    </li>
+  </ul>
+</mat-toolbar>

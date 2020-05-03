@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <form [formGroup]="form" (submit)="onSaveClient()" *ngIf="!isLoading">
+    <mat-form-field appearance="fill">
+      <mat-label>Cliente</mat-label>
+      <input matInput type="text" formControlName="client" placeholder="Nombre del cliente">
+      <mat-error *ngIf="form.get('client').invalid">Por favor teclee el nombre del cliente.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Producto</mat-label>
+      <input matInput type="text" formControlName="product" placeholder="Nombre del producto">
+      <mat-error *ngIf="form.get('product').invalid">Por favor teclee el nombre del producto.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Direccion</mat-label>
+      <input matInput type="text" formControlName="address" placeholder="Direccion">
+      <mat-error *ngIf="form.get('address').invalid">Por favor teclee la direccion del cliente.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefono</mat-label>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Incluye el codigo del area</mat-hint>
+      <input matInput type="text" formControlName="phone" placeholder="11-11111111">
+      <mat-error *ngIf="form.get('phone').invalid">Por favor el telefono del cliente.</mat-error>
+    </mat-form-field>
+
+<!--
+    <mat-form-field>
+      <input matInput type="text" formControlName="extras" placeholder="Extras del cliente">
+      <mat-error *ngIf="form.get('extras').invalid">Por favor escoge una opcion extra.</mat-error>
+    </mat-form-field>
+  -->
+
+    <div class="fill">
+      <mat-label placeholder="Extras del cliente">Extras: </mat-label>
+      <div class="checkbox" formArrayName="extras" *ngFor="let extra of form.controls.extras.controls; let i = index">
+        <mat-checkbox (change)="totalSelected()" [formControlName]="i">{{extrasData[i].description}}</mat-checkbox>
+      </div>
+      <mat-error *ngIf="totalExtrasSelected<minimumExtrasSelected">Al menos debes seleccionar un extra</mat-error>
+    </div>
+
+    <button mat-raised-button color='accent' type="submit">Guardar</button>
+  </form>
+</mat-card>
+

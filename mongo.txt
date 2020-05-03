@@ -1,0 +1,12 @@
+./mongo.sh
+show dbs;
+use clients;
+show collections;
+
+db.client.find().pretty();
+db.client.remove({})
+db.client.count();
+
+db.users.find().pretty();
+db.users.remove({})
+db.users.count();

@@ -1,0 +1,16 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner  {
+  margin: auto;
+}
+
+.checkbox {
+  margin: 0 10px;
+}
+
+.fill {
+  background-color: rgba(0,0,0,.04);
+}
