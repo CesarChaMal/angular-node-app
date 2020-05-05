@@ -17,7 +17,7 @@ mongoose
     console.log("Connection failed!");
   });
 
-// app.use(express.static("mean-course"));
+// app.use(express.static("angular-node-app"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join("backend/images")));
