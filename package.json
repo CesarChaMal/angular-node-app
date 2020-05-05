@@ -2,7 +2,7 @@
   "name": "angular-node-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "npm-run-all -p client server",
+    "start": "concurrently --kill-others \"npm run server:run\" \"ng serve --aot --progress=false --proxy-config proxy.conf.json\"",
     "build": "ng build --prod --aot --output-path=dist && npm run server:build",
     "test:client": "ng test --watch false",
     "lint": "ng lint",
@@ -45,7 +45,7 @@
     "multer": "^1.4.2",
     "rxjs": "^6.5.3",
     "zone.js": "~0.9.1",
-    "npm-run-all": "^4.1.5"
+    "concurrently": "^5.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.21",
@@ -65,7 +65,6 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "nodemon": "^1.19.4",
-    "npm-run-all": "^4.1.5",
     "protractor": "~5.4.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
