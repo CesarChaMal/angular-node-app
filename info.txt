@@ -2,5 +2,52 @@ npm install
 npm run server
 -- npm run start:server
 
+
+
+-- install as a service
+npm install -g qckwinsvc
+
+
+-- Install
+
+-- interactive
+qckwinsvc
+
+prompt: Service name:  node-app
+prompt: Service description:  Clientes
+prompt: Node script path:  server.js
+prompt: Should the service get started immediately? (y/n):  y
+Service installed.
+Service started.
+
+-- non interactive
+qckwinsvc --name "node-app" --description "Clientes" --script "server.js" --startImmediately
+Service installed.
+Service started.
+
+
+--Uninstall
+
+--interactive
+qckwinsvc --uninstall
+
+prompt: Service name:  node-app
+prompt: Node script path:  server.js
+Service stopped.
+Service uninstalled.
+
+
+-- non interactive
+qckwinsvc --uninstall --name "node-app" --script "server.js"
+Service stopped.
+Service uninstalled.
+
+-- release http
+http://localhost:3000/app
+
+-- angular app
+http://localhost:4200/app
+-- server http
 http://localhost:3000/
+-- server https
 https://localhost:4443/
