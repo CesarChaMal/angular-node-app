@@ -19,21 +19,26 @@ import {
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ClientCreateComponent } from './client/client-create/client-create.component';
+import { ClientShowComponent } from './client/client-show/client-show.component';
 import { ClientListComponent } from './client/client-list/client-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { PrintLayoutComponent } from './print/print-layout/print-layout.component';
+import { PrintService } from './print/print.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ClientCreateComponent,
+    ClientShowComponent,
     ClientListComponent,
     LoginComponent,
     LogoutComponent,
-    SignupComponent
+    SignupComponent,
+    PrintLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PrintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

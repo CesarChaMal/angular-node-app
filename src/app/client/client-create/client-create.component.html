@@ -1,6 +1,5 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-
   <form [formGroup]="form" (submit)="onSaveClient()" *ngIf="!isLoading">
     <mat-form-field appearance="fill">
       <mat-label>Cliente</mat-label>
@@ -27,23 +26,22 @@
       <input matInput type="text" formControlName="phone" placeholder="11-11111111">
       <mat-error *ngIf="form.get('phone').invalid">Por favor el telefono del cliente.</mat-error>
     </mat-form-field>
-
 <!--
     <mat-form-field>
       <input matInput type="text" formControlName="extras" placeholder="Extras del cliente">
       <mat-error *ngIf="form.get('extras').invalid">Por favor escoge una opcion extra.</mat-error>
     </mat-form-field>
   -->
-
-    <div class="fill">
-      <mat-label placeholder="Extras del cliente">Extras: </mat-label>
+    <div class="extras fill">
+      <mat-label class="extras-label" placeholder="Extras del cliente">Extras: </mat-label>
       <div class="checkbox" formArrayName="extras" *ngFor="let extra of form.controls.extras.controls; let i = index">
         <mat-checkbox (change)="totalSelected()" [formControlName]="i">{{extrasData[i].description}}</mat-checkbox>
       </div>
       <mat-error *ngIf="totalExtrasSelected<minimumExtrasSelected">Al menos debes seleccionar un extra</mat-error>
     </div>
-
+    <br/>
     <button mat-raised-button color='accent' type="submit">Guardar</button>
+    <button mat-raised-button color='accent' type="reset" (click)="reset()">Limpiar</button>
+    <button mat-raised-button color='accent' type="button" *ngIf="mode!='create'" (click)="printOrder()">Imprimir</button>
   </form>
 </mat-card>
-

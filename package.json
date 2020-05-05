@@ -8,6 +8,7 @@
     "test:client": "ng test --watch false",
     "e2e:client": "ng e2e",
     "build": "ng build --prod --aot --output-path=dist && npm run server:build",
+    "client:run": "ng serve --aot --progress=false --proxy-config proxy.conf.json",
     "server:run": "nodemon server.js",
     "server": "node server.js",
     "server:build": "tsc -p ./src/tsconfig.app.json",

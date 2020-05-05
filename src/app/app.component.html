@@ -1,4 +1,7 @@
   <app-header [MyTitle]="'Clientes'"></app-header>
   <main>
     <router-outlet></router-outlet>
+    <div [class.isPrinting]="printService.isPrinting">
+      <router-outlet name="printArea"></router-outlet>
+    </div>
   </main>
