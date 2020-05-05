@@ -1,0 +1,12 @@
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
+
+heroku login
+heroku help
+heroku create
+git push heroku master
+heroku open
+heroku logs --tail
+heroku config
+heroku ps
+
+"heroku-postbuild": "cd client && npm install && npm run build"

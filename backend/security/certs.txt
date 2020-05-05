@@ -1,0 +1,73 @@
+- create private key
+
+openssl genrsa -out id_rsa.key 2048 
+
+- create request
+
+Country codes
+https://www.digicert.com/ssl-certificate-country-codes.htm
+
+openssl req -new -key id_rsa.key -out id_rsa.csr
+-- does not works in gitbash
+openssl req -new -key id_rsa.key -out id_rsa.csr -subj "/C=PL/ST=Wroclaw/L=Dolnoslaskie/O=Particular/OU=IT/CN=RAZERBLADE14/emailAddress=ces_ch@hotmail.com"
+openssl req -text -in id_rsa.csr -noout -verify
+
+- create selfsigned request
+
+openssl x509 -req -days 365 -in id_rsa.csr -signkey id_rsa.key -out id_rsa.crt
+
+- create pem of private key
+
+openssl rsa -des3 -in id_rsa.key -out id_rsa_key.pem
+
+- create der of cert
+
+openssl x509 -in id_rsa.crt -out id_rsa.der -outform DER
+
+- create pem of cert
+
+openssl x509 -in id_rsa.der -inform DER -out id_rsa_crt.pem -outform PEM
+
+- remove passfrase from private key
+
+cp id_rsa.key id_rsa-no-pass.key
+openssl rsa -in id_rsa-no-pass.key -out id_rsa.key
+
+- remove passfrase from private key pem
+
+cp id_rsa_key.pem id_rsa_key-no-pass.pem
+openssl rsa -in id_rsa_key-no-pass.pem -out id_rsa_key.pem
+
+- other way to remove passfrase from private key
+
+openssl rsa -in id_rsa.key -out id_rsa-no-pass.key && mv id_rsa-no-pass.key id_rsa.key
+
+- other way to remove passfrase from private key pem
+
+openssl rsa -in id_rsa_key.pem -out id_rsa_key-no-pass.pem && mv id_rsa_key-no-pass.pem id_rsa_key.pem
+
+- check private keys
+
+openssl rsa -check -in id_rsa_key.pem
+openssl rsa -check -in id_rsa.key
+
+- check certificates
+
+openssl x509 -in id_rsa.crt -noout -text
+openssl x509 -in id_rsa_crt.pem -noout -text
+
+- Verify a Private Key Matches a Certificate and CSR
+ 
+openssl rsa -noout -modulus -in id_rsa.key | openssl md5
+openssl x509 -noout -modulus -in id_rsa.crt | openssl md5
+openssl req -noout -modulus -in id_rsa.csr | openssl md5
+openssl rsa -noout -modulus -in id_rsa_key.pem | openssl md5
+openssl x509 -noout -modulus -in id_rsa_crt.pem | openssl md5
+
+- Generate public and private key pair
+
+ssh-keygen -t rsa
+
+- Generate pfx
+
+openssl pkcs12 -export -out id_rsa.pfx -inkey id_rsa.key -in id_rsa.crt

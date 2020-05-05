@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const clientRoutes = require("./routes/client");
 const userRoutes = require("./routes/user");
 const app = express();
+const cookieParser = require('cookie-parser');
 
 mongoose
   // .connect("mongodb+srv://root:admin@cluster0-69rn9.mongodb.net/node-angular?retryWrites=true&w=majority")
@@ -17,10 +18,15 @@ mongoose
     console.log("Connection failed!");
   });
 
-// app.use(express.static("angular-node-app"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/images", express.static(path.join("backend/images")));
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+// for testing angular deployments
+// app.use(express.static('dist'));
+// app.use(express.static(path.join(__dirname, 'dist')));
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -33,6 +39,12 @@ app.use((req, res, next) => {
     "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   );
   next();
+});
+
+app.get('/test.html', function (req, res) {
+// app.get('/', function (req, res) {
+  res.header('Content-type', 'text/html');
+  return res.end('<h1>Hello, World!</h1>');
 });
 
 app.use("/api/client", clientRoutes);
