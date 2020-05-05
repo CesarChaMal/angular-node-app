@@ -4,14 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --aot --output-path=dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:server": "npx nodemon server.js"
+    "server": "npx nodemon server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^8.3.21",
+    "@angular/compiler-cli": "^8.2.11",
     "@angular/animations": "^8.2.11",
     "@angular/cdk": "~6.2.1",
     "@angular/common": "^8.2.11",
