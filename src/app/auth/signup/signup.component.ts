@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 
 export class SignupComponent {
   isLoading = false;
+  erroMessage: string;
 
   constructor(public authService: AuthService) {}
 
@@ -19,5 +20,10 @@ export class SignupComponent {
       return;
     }
     this.authService.createUser(form.value.email, form.value.password);
+    if (!this.authService.isLoggedIn()) {
+      this['erroMessage'] = 'Error, usuario ya existe';
+    } else {
+      this['erroMessage'] = '';
+    }
   }
 }

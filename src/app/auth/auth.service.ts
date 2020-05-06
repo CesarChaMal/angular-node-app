@@ -13,9 +13,22 @@ export class AuthService {
     const authData: AuthData = {email: email, password: password};
     this.http.post(this.uri + 'signup', authData)
     .subscribe(response => {
-      console.log(response);
-      localStorage.setItem('ACCESS_TOKEN', 'access_token');
-      this.router.navigate(['/']);
+      console.log('response from server: ' + response);
+      // Object.keys(response).forEach(e => console.log(`key=${e}  value=${response[e]}`));
+      // Object.keys(response['result']).forEach(e => console.log(`key=${e}  value=${response['result'][e]}`));
+      // Object.keys(response['result']['password']).forEach(e => console.log(`key=${e}  value=${response['result']['password'][e]}`));
+      console.log('response from server: ' + response['result']['password']);
+      // console.log('response from server: ' + response['clients'].id);
+
+      if (typeof response != undefined) {
+        localStorage.setItem('ACCESS_TOKEN', response['result']['password']);
+        this.router.navigate(['/']);
+        console.log('Creation 0k');
+        return 'Ok';
+      } else  {
+        localStorage.removeItem('ACCESS_TOKEN');
+        return 'Creation failed';
+      }
     });
   }
 
@@ -23,9 +36,16 @@ export class AuthService {
     const authData: AuthData = {email: email, password: password};
     this.http.post(this.uri + 'login', authData)
     .subscribe(response => {
-      console.log(response);
-      localStorage.setItem('ACCESS_TOKEN', 'access_token');
-      this.router.navigate(['/']);
+      console.log('response from server: ' + response);
+      if (typeof response != undefined) {
+        localStorage.setItem('ACCESS_TOKEN', response['token']);
+        this.router.navigate(['/']);
+        console.log('Login ok');
+        return 'Ok';
+      } else  {
+        localStorage.removeItem('ACCESS_TOKEN');
+        return 'Auth failed';
+      }
     });
   }
 

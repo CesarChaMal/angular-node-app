@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import {Component} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 
 export class LoginComponent {
   isLoading = false;
+  erroMessage: string;
 
   constructor(public authService: AuthService) {}
 
@@ -19,5 +20,10 @@ export class LoginComponent {
       return;
     }
     this.authService.login(form.value.email, form.value.password);
+    if (!this.authService.isLoggedIn()) {
+      this['erroMessage'] = 'Fallo de autenticación.';
+    } else {
+      this['erroMessage'] = '';
+    }
   }
 }

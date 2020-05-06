@@ -17,6 +17,9 @@ ng build --prod
 -- this generates dist/ with minified files and with aot
 ng build --prod --aot --output-path=dist
 
+-- this generates dist/ with minified files
+ng build --prod --output-path=dist
+
 -- Error while deploy angular app on node server
 -- dist folder because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.
 
