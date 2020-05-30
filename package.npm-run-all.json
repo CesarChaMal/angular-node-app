@@ -18,7 +18,10 @@
     "build:prod": "ng build --prod --sm=false --aot --output-path=dist",
     "ng": "ng"
   },
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "registry": "http://localhost:8081/repository/npm-snapshots/"
+  },
   "dependencies": {
     "@angular/cli": "^8.3.21",
     "@angular/compiler-cli": "^8.2.11",
