@@ -2,8 +2,10 @@ Info
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 Heroku
 https://dashboard.heroku.com/apps/angular-node-app-heroku
-App
+App deployed
 https://angular-node-app-heroku.herokuapp.com/
+
+git checkout -b heroku
 
 heroku login
 heroku help
@@ -11,6 +13,12 @@ heroku create
 git push heroku master
 heroku open
 heroku logs --tail
+heroku logs --dyno router
+heroku logs --source app
+heroku restart
+heroku run npm start
+heroku run printenv
+heroku run vi printenv
 heroku config
 heroku config:set NODE_OPTIONS="--max_old_space_size=2560" -a "angular-node-app-heroku"
 heroku config:set NODE_OPTIONS="--max_old_space_size=8192" -a "angular-node-app-heroku"
