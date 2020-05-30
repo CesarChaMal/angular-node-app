@@ -7,21 +7,40 @@ git push heroku master
 heroku open
 heroku logs --tail
 heroku config
-heroku config:set NODE_OPTIONS="--max_old_space_size=2560" -a [app_name]"
+heroku config:set NODE_OPTIONS="--max_old_space_size=2560" -a "angular-node-app-heroku"
 heroku ps
 
 "scripts": {
-    "start": "node --max_old_space_size=2560 node_modules/.bin/react-scripts start",
-    "build": "node --max_old_space_size=2560 node_modules/.bin/react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node --max_old_space_size=2560 ./node_modules/@angular/cli/bin/ng serve",
+    "build": "node --max_old_space_size=2560 ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer"
 }
 
-git remote heroku
+heroku apps
+=== ces_ch@hotmail.com Apps
+secret-taiga-81276
+xl-spaceship (eu)
 
-heroku apps:rename newname
+git remote -v
+heroku  https://git.heroku.com/secret-taiga-81276.git (fetch)
+heroku  https://git.heroku.com/secret-taiga-81276.git (push)
+origin  git@github.com:CesarChaMal/angular-node-app.git (fetch)
+origin  git@github.com:CesarChaMal/angular-node-app.git (push)
+
+
+heroku apps:rename angular-node-app-heroku
+heroku apps:rename angular-node-app-heroku --app secret-taiga-81276
 git remote rm heroku
 heroku git:remote -a newname
 
+heroku apps
+=== ces_ch@hotmail.com Apps
+angular-node-app-heroku
+xl-spaceship (eu)
+
+git remote -v
+heroku  https://git.heroku.com/angular-node-app-heroku.git (fetch)
+heroku  https://git.heroku.com/angular-node-app-heroku.git (push)
+origin  git@github.com:CesarChaMal/angular-node-app.git (fetch)
+origin  git@github.com:CesarChaMal/angular-node-app.git (push)
 
 "heroku-postbuild": "cd client && npm install && npm run build"
