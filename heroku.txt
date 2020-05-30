@@ -1,4 +1,9 @@
+Info
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
+Heroku
+https://dashboard.heroku.com/apps/angular-node-app-heroku
+App
+https://angular-node-app-heroku.herokuapp.com/
 
 heroku login
 heroku help
