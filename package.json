@@ -10,7 +10,7 @@
     "e2e": "./node_modules/@angular/cli/bin/ng e2e",
     "server": "npx nodemon server.js",
     "preinstall": "rm -rf /dist",
-    "postinstall": "./node_modules/@angular/cli/bin/ng build --prod --output-path=dist"
+    "postinstall": "./node_modules/@angular/cli/bin/ng build --prod --aot --output-path=dist"
   },
   "engines": {
     "node": "12.13.0",
