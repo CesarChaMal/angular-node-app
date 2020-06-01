@@ -15,9 +15,9 @@
     "server:run": "nodemon server.js",
     "server:node": "node server.js",
     "server:build": "tsc -p ./src/tsconfig.app.json",
-    "build:prod": "ng build --prod --sm=false --aot --output-path=dist",
+    "build:prod": "ng build --prod --aot --output-path=dist",
     "preinstall": "rm -rf /dist",
-    "postinstall": "ng build --prod --sm=false --aot --output-path=dist"
+    "postinstall": "ng build --prod --aot --output-path=dist"
   },
   "private": false,
   "publishConfig": {
