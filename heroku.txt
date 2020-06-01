@@ -12,6 +12,7 @@ heroku login
 heroku help
 heroku create
 git push heroku master
+git push --set-upstream origin heroku
 git push origin heroku
 git push heroku heroku
 heroku open
