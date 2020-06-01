@@ -3,7 +3,7 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deploy
 Heroku
 https://dashboard.heroku.com/apps/angular-node-app-heroku
 App deployed
-https://angular-node-app-heroku.herokuapp.com/
+https://angular-node-app-heroku.herokuapp.com/app
 
 git checkout -b heroku
 
@@ -11,6 +11,7 @@ heroku login
 heroku help
 heroku create
 git push heroku master
+git push heroku heroku
 heroku open
 heroku logs --tail
 heroku logs --dyno router
