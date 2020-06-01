@@ -147,11 +147,11 @@ const onListening = () => {
 const portHttp = normalizePort(process.env.PORT || "3000");
 // console.log('normalizePort http: ' + portHttp);
 
-//const portHttps = normalizePort(process.env.PORT || "4443");
+const portHttps = normalizePort(process.env.PORT || "4443");
 // console.log('normalizePort https: ' + portHttps);
 
 app.set("httpPort", portHttp);
-//app.set("httpsPort", portHttps);
+app.set("httpsPort", portHttps);
 
 // let server;
 // let port;
@@ -165,11 +165,11 @@ httpServer.listen(portHttp);
 // server = httpServer;
 // port = portHttp;
 
-//const httpsServer = https.createServer(https_options, app);
+const httpsServer = https.createServer(https_options, app);
 // httpsServer.on("error", onError);
-//httpsServer.on("error", onErrorHttps);
+httpsServer.on("error", onErrorHttps);
 // httpsServer.on("listening", onListening);
-//httpsServer.on("listening", onListeningHttps);
-//httpsServer.listen(portHttps);
+httpsServer.on("listening", onListeningHttps);
+httpsServer.listen(portHttps);
 // server = httpsServer;
 // port = portHttps;
