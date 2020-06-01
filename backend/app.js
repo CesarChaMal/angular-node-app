@@ -22,10 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/images', express.static(path.join("backend/images")));
 app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 // for testing angular deployments
 app.use('/app', express.static('dist'))
-app.use('/app', express.static(path.join(__dirname, 'dist')));
+app.use('/app', express.static(path.join(__dirname, '/dist')));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
