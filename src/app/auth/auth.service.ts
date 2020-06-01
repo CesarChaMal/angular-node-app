@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private uri = 'http://localhost:3000/api/user/';
+  //private uri = 'http://localhost:3000/api/user/';
+  private uri = 'https://angular-node-app-heroku.herokuapp.com/api/user/';
+
 
   constructor(private http: HttpClient, private router: Router) {}
 

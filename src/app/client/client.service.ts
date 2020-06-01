@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class ClientService {
   private clients: Client[] = [];
   private clientUpdated = new Subject<{clients: Client[], clientCount: number}>();
-  private uri = 'http://localhost:3000/api/client/';
+  //private uri = 'http://localhost:3000/api/client/';
+  private uri = 'https://angular-node-app-heroku.herokuapp.com/api/client/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
