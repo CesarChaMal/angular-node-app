@@ -1702,7 +1702,7 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\IdeaProjects\angular-node-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\IdeaProjects\angular-node-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })

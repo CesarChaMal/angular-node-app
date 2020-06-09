@@ -2117,7 +2117,7 @@ __NgCli_bootstrap_2.platformBrowser().bootstrapModuleFactory(__NgCli_bootstrap_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\IdeaProjects\angular-node-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\IdeaProjects\angular-node-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })
