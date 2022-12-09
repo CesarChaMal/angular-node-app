@@ -1,7 +1,8 @@
 npm install
+-- npm install --force
 npm run server
 -- npm run start:server
-
+-- npx browserslist --update-db
 
 
 -- install as a service
@@ -51,3 +52,18 @@ http://localhost:4200/app
 http://localhost:3000/
 -- server https
 https://localhost:4443/
+
+ng update
+
+ng update @angular/cdk@7
+-- npm install @angular/cdk@7 --save
+
+ng update @angular/cli@9
+-- npm install @angular/cli@9 --save
+
+ng update @angular/core@9
+-- npm install @angular/core@9 --save
+
+ng update @angular/material@7
+-- npm install @angular/material@7 --save
+
