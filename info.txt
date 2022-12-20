@@ -67,3 +67,5 @@ ng update @angular/core@9
 ng update @angular/material@7
 -- npm install @angular/material@7 --save
 
+https://www.npmpeer.dev/packages/@angular-devkit/build-angular/compatibility
+

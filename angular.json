@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "angular-node-app"
+  "defaultProject": "angular-node-app",
+  "cli": {
+    "analytics": false
+  }
 }
