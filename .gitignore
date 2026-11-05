@@ -151,3 +151,12 @@ Thumbs.db
 # Heroku
 .env
 .env.backup
+
+# Private key material — never commit
+id_rsa
+*.key
+*.pem
+*.p12
+*.pfx
+*.ppk
+known_hosts
